@@ -108,6 +108,6 @@ if submit_button:
     probability = svc_model.predict_proba(input_scaled)[0][1]
 
     if prediction[0] == 1:
-        st.error(f"Pasien berisiko tinggi terkena penyakit jantung dengan probabilitas {probability:.2f}")
+        st.error(f"Pasien berisiko terkena penyakit jantung dengan probabilitas {probability:.2f}")
     else:
         st.success(f"Pasien memiliki risiko rendah terkena penyakit jantung dengan probabilitas {probability:.2f}")
