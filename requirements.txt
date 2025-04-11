@@ -4,3 +4,4 @@ streamlit
 scikit-learn
 pip==25.0.1
 matplotlib
+seaborn
