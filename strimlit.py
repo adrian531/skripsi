@@ -61,7 +61,7 @@ with open("scaler.pkl", "wb") as scaler_file:
 
 # ---------------- FORM INPUT ---------------- #
 
-st.subheader("🫀 Prediksi Penyakit Jantung")
+st.subheader("🫀 Deteksi Penyakit Jantung")
 with st.form(key='prediction_form'):
     user_input = {}
 
