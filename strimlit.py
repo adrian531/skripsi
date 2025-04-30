@@ -32,7 +32,7 @@ def load_data():
 
 df = load_data()
 
-st.title("🫀 Aplikasi Prediksi Penyakit Jantung")
+
 st.markdown("Gunakan aplikasi ini untuk memprediksi risiko penyakit jantung berdasarkan data medis pasien.")
 
 # Identifikasi kolom kategorikal
