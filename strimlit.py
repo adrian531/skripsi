@@ -16,9 +16,9 @@ if show_3d:
     st.markdown("#### Visualisasi 3D Jantung")
     html(
         """
-        <iframe title="3D Heart Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+       <iframe title="3D Heart Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-        src="<div class="sketchfab-embed-wrapper"> <iframe title="3d Animated Realistic Human Heart V1.0" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/a70c0c47fe4b4bbfabfc8f445365d5a4/embed?autostart=1&transparent=1&ui_theme=dark"> </iframe> </div>
+        src="https://sketchfab.com/models/a70c0c47fe4b4bbfabfc8f445365d5a4/embed"
         width="100%" height="400">
         </iframe>
         """,
