@@ -5,6 +5,26 @@ import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.svm import SVC
+from streamlit.components.v1 import html
+
+st.title("🫀 Aplikasi Prediksi Penyakit Jantung")
+
+# Switch untuk menampilkan animasi 3D
+show_3d = st.toggle("Tampilkan Animasi 3D Jantung", value=True)
+
+if show_3d:
+    st.markdown("#### Visualisasi 3D Jantung")
+    html(
+        """
+        <iframe title="3D Heart Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+        allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+        src="https://sketchfab.com/models/554f1c975bda4efdad48b6ee1c37b261/embed"
+        width="100%" height="400">
+        </iframe>
+        """,
+        height=400,
+    )
+
 
 # Set page config
 st.set_page_config(page_title="Prediksi Penyakit Jantung", page_icon="🫀", layout="centered")
