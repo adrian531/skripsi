@@ -18,12 +18,7 @@ if show_3d:
         """
         <iframe title="3D Heart Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-        src="<div class="sketchfab-embed-wrapper"> <iframe title="3d Animated Realistic Human Heart V1.0" frameborder="0" allowfullscreen mozallowfullscreen="true" 
-        webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered 
-        web-share src="https://sketchfab.com/models/a70c0c47fe4b4bbfabfc8f445365d5a4/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
-        <a href="https://sketchfab.com/3d-models/3d-animated-realistic-human-heart-v10-a70c0c47fe4b4bbfabfc8f445365d5a4?utm_medium=embed&utm_campaign=share-popup&utm_content=a70c0c47fe4b4bbfabfc8f445365d5a4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 3d Animated Realistic Human Heart V1.0 </a> 
-        by <a href="https://sketchfab.com/docjana?utm_medium=embed&utm_campaign=share-popup&utm_content=a70c0c47fe4b4bbfabfc8f445365d5a4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Anatomy by Doctor Jana </a> on 
-        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=a70c0c47fe4b4bbfabfc8f445365d5a4" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>"
+        src="<div class="sketchfab-embed-wrapper"> <iframe title="3d Animated Realistic Human Heart V1.0" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/a70c0c47fe4b4bbfabfc8f445365d5a4/embed?autostart=1&transparent=1&ui_theme=dark"> </iframe> </div>
         width="100%" height="400">
         </iframe>
         """,
