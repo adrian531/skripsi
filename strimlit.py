@@ -25,32 +25,6 @@ if show_3d:
         height=400,
     )
 
-
-# Set page config
-st.set_page_config(page_title="Prediksi Penyakit Jantung", page_icon="🫀", layout="centered")
-
-# Custom CSS for cleaner design
-st.markdown("""
-    <style>
-        .main {
-            background-color: #f7f9fa;
-        }
-        h1, h2, h3 {
-            color: #C0392B;
-        }
-        .stButton button {
-            background-color: #C0392B;
-            color: white;
-            border: None;
-            padding: 0.5em 2em;
-            border-radius: 10px;
-        }
-        .stButton button:hover {
-            background-color: #A93226;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
 # Load dataset
 @st.cache_data
 def load_data():
