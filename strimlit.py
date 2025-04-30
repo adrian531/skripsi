@@ -18,7 +18,7 @@ if show_3d:
         """
         <iframe title="3D Heart Model" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
         allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-        src="https://sketchfab.com/models/554f1c975bda4efdad48b6ee1c37b261/embed"
+        src="https://skfb.ly/MtVL/embed"
         width="100%" height="400">
         </iframe>
         """,
