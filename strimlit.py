@@ -104,39 +104,28 @@ with st.form(key='prediction_form'):
 
     submit_button = st.form_submit_button(label='🔍 Prediksi')
 
-if submit_button:
-    input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}])
-    input_num_df = pd.DataFrame([{k: v for k, v in user_input.items() if k not in categorical_cols}])
+if submit_button: input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}]) input_num_df = pd.DataFrame([{k: v for k, v in user_input.items() if k not in categorical_cols}])
 
-    # Debug: Cek isi dari input_cat_df dan input_num_df
-    st.write("Input Kategorikal:", input_cat_df)
-    st.write("Input Numerik:", input_num_df)
+encoded_input = encoder.transform(input_cat_df)
+encoded_input_df = pd.DataFrame(encoded_input, columns=encoder.get_feature_names_out(categorical_cols))
 
-    # Pastikan input_cat_df tidak kosong
-    if not input_cat_df.empty:
-        encoded_input = encoder.transform(input_cat_df)
-        encoded_input_df = pd.DataFrame(encoded_input, columns=encoder.get_feature_names_out(categorical_cols))
-
-        input_final_parts = []
-        for col in df.columns:
-            if col == 'HeartDisease':
-                continue
-            elif col in categorical_cols:
-                matched_cols = [c for c in encoded_input_df.columns if c.startswith(col + "_")]
-                input_final_parts.append(encoded_input_df[matched_cols])
-            else:
-                input_final_parts.append(input_num_df[[col]])
-
-        final_input_df = pd.concat(input_final_parts, axis=1)
-        input_scaled = scaler.transform(final_input_df)
-
-        prediction = svc_model.predict(input_scaled)
-        probability = svc_model.predict_proba(input_scaled)[0][1]
-
-        if prediction[0] == 1:
-            st.error(f"🚨 Pasien berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
-        else:
-            st.success(f"✅ Pasien tidak berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
+input_final_parts = []
+for col in df.columns:
+    if col == 'HeartDisease':
+        continue
+    elif col in categorical_cols:
+        matched_cols = [c for c in encoded_input_df.columns if c.startswith(col + "_")]
+        input_final_parts.append(encoded_input_df[matched_cols])
     else:
-        st.error("Input kategorikal tidak valid. Silakan periksa input Anda.")
+        input_final_parts.append(input_num_df[[col]])
 
+final_input_df = pd.concat(input_final_parts, axis=1)
+input_scaled = scaler.transform(final_input_df)
+
+prediction = svc_model.predict(input_scaled)
+probability = svc_model.predict_proba(input_scaled)[0][1]
+
+if prediction[0] == 1:
+    st.error(f"🚨 Pasien berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
+else:
+    st.success(f"✅ Pasien tidak berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
