@@ -111,23 +111,23 @@ if submit_button:
     encoded_input = encoder.transform(input_cat_df)
     encoded_input_df = pd.DataFrame(encoded_input, columns=encoder.get_feature_names_out(categorical_cols))
 
-input_final_parts = []
-for col in df.columns:
-    if col == 'HeartDisease':
-        continue
-    elif col in categorical_cols:
-        matched_cols = [c for c in encoded_input_df.columns if c.startswith(col + "_")]
-        input_final_parts.append(encoded_input_df[matched_cols])
+    input_final_parts = []
+    for col in df.columns:
+        if col == 'HeartDisease':
+            continue
+        elif col in categorical_cols:
+            matched_cols = [c for c in encoded_input_df.columns if c.startswith(col + "_")]
+            input_final_parts.append(encoded_input_df[matched_cols])
+        else:
+            input_final_parts.append(input_num_df[[col]])
+
+    final_input_df = pd.concat(input_final_parts, axis=1)
+    input_scaled = scaler.transform(final_input_df)
+
+    prediction = svc_model.predict(input_scaled)
+    probability = svc_model.predict_proba(input_scaled)[0][1]
+
+    if prediction[0] == 1:
+        st.error(f"🚨 Pasien berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
     else:
-        input_final_parts.append(input_num_df[[col]])
-
-final_input_df = pd.concat(input_final_parts, axis=1)
-input_scaled = scaler.transform(final_input_df)
-
-prediction = svc_model.predict(input_scaled)
-probability = svc_model.predict_proba(input_scaled)[0][1]
-
-if prediction[0] == 1:
-    st.error(f"🚨 Pasien berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
-else:
-    st.success(f"✅ Pasien tidak berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
+        st.success(f"✅ Pasien tidak berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
