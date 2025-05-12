@@ -42,7 +42,7 @@ for col in df.columns:
         categorical_cols.append(col)
 
 # OneHotEncoding
-encoder = OneHotEncoder(sparse_output=False)
+encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
 encoded_data = encoder.fit_transform(df[categorical_cols])
 encoded_df = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(categorical_cols))
 
