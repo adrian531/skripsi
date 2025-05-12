@@ -105,8 +105,9 @@ with st.form(key='prediction_form'):
     submit_button = st.form_submit_button(label='🔍 Prediksi')
 
 if submit_button:
-    input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}])
     input_num_df = pd.DataFrame([{k: v for k, v in user_input.items() if k not in categorical_cols}])
+    input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}])
+    
 
     encoded_input = encoder.transform(input_cat_df)
     encoded_input_df = pd.DataFrame(encoded_input, columns=encoder.get_feature_names_out(categorical_cols))
