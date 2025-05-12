@@ -104,8 +104,8 @@ with st.form(key='prediction_form'):
 
     submit_button = st.form_submit_button(label='🔍 Prediksi')
 
-if submit_button: 
-    input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}]) 
+if submit_button:
+    input_cat_df = pd.DataFrame([{k: v for k, v in user_input.items() if k in categorical_cols}])
     input_num_df = pd.DataFrame([{k: v for k, v in user_input.items() if k not in categorical_cols}])
 
     encoded_input = encoder.transform(input_cat_df)
@@ -128,6 +128,6 @@ if submit_button:
     probability = svc_model.predict_proba(input_scaled)[0][1]
 
     if prediction[0] == 1:
-        st.error(f"🚨 Pasien berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
+        st.error(f"🚨 Pasien berisiko **tinggi** terkena penyakit jantung (Probabilitas: {probability:.2%})")
     else:
-        st.success(f"✅ Pasien tidak berisiko terkena penyakit jantung (Probabilitas: {probability:.2%})")
+        st.success(f"✅ Pasien berisiko **rendah** terkena penyakit jantung (Probabilitas: {probability:.2%})")
