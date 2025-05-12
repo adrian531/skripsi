@@ -28,7 +28,7 @@ if show_3d:
 # Load dataset
 @st.cache_data
 def load_data():
-    return pd.read_csv("assets/heart.csv")
+    return pd.read_csv("assets/heart_cleaned.csv")
 
 df = load_data()
 
